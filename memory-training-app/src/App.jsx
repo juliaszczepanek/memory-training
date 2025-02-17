@@ -1,17 +1,42 @@
 import { Signup, Login } from "./authentication";
 import { Navigation, Footer } from "./UI";
-import { Home, NumberSpan, Profile, CorsiBlock, VerbalMemory } from "./pages";
+import {
+  Home,
+  NumberSpan,
+  Profile,
+  CorsiBlock,
+  VerbalMemory,
+  TestModule,
+  MemoryStartegies,
+} from "./pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./utility/ScrollToTop";
 import { AuthProvider } from "./contexts/AuthContext";
+import ProtectedRoute from "./authentication/ProtectedRoute";
 
 function App() {
   const routing = [
     { path: "/", element: <Home /> },
-    { path: "/profile", element: <Profile /> },
+    {
+      path: "/profile",
+      element: (
+        <ProtectedRoute>
+          <Profile />
+        </ProtectedRoute>
+      ),
+    },
     { path: "/number-span", element: <NumberSpan /> },
     { path: "/verbal-memory", element: <VerbalMemory /> },
     { path: "/corsi-block", element: <CorsiBlock /> },
+    { path: "/memory-strategies", element: <MemoryStartegies /> },
+    {
+      path: "/test-module",
+      element: (
+        <ProtectedRoute>
+          <TestModule />
+        </ProtectedRoute>
+      ),
+    },
     {
       path: "/signup",
       element: <Signup />,

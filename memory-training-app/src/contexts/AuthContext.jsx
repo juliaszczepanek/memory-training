@@ -12,11 +12,17 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
-  function signup(email, password) {
+  function signup(email, password, name) {
     return auth
       .setPersistence(firebase.auth.Auth.Persistence.SESSION)
       .then(() => {
-        return auth.createUserWithEmailAndPassword(email, password);
+        return auth
+          .createUserWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            return userCredential.user.updateProfile({
+              displayName: name,
+            });
+          });
       })
       .catch((error) => {
         console.error("Error in signup:", error);
@@ -29,6 +35,10 @@ export function AuthProvider({ children }) {
       .setPersistence(firebase.auth.Auth.Persistence.SESSION)
       .then(() => {
         return auth.signInWithEmailAndPassword(email, password);
+      })
+      .catch((error) => {
+        console.error("Login error:", error.message);
+        throw error;
       });
   }
 
@@ -45,7 +55,12 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
-  const value = { currentUser, signup, login, logout };
+  const value = {
+    currentUser,
+    signup: (email, password, name) => signup(email, password, name),
+    login,
+    logout,
+  };
 
   return (
     <AuthContext.Provider value={value}>
