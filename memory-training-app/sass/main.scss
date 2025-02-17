@@ -1,0 +1,22 @@
+// abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/animations";
+
+// base
+@import "base/base";
+@import "base/typography";
+@import "base/global";
+
+// layout
+@import "layout/footer";
+@import "layout/navigation";
+
+// pages
+@import "pages/home/home";
+@import "pages/number-span/number-span";
+@import "pages/verbal-memory/verbal-memory";
+@import "pages/corsi-block/corsi-block";
+@import "pages/login/authentication";
+@import "pages/profile/profile";
+@import "pages/memory-strategies/memory-strategies";

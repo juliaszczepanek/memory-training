@@ -1,0 +1,121 @@
+.navigation {
+  position: relative;
+
+  &__container {
+    position: fixed;
+    z-index: 3;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    background-color: $white;
+    border-radius: 50%;
+    display: inline;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond-to(mobile-small) {
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: $background-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include respond-to(mobile-small) {
+      padding-top: 8rem;
+      justify-content: start;
+      align-items: start;
+    }
+  }
+
+  .close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: $white;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: none;
+
+    @include respond-to(mobile-small) {
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  &__link {
+    font-weight: 700;
+    font-family: $font-primary;
+    color: $primary;
+    font-size: 4rem;
+    text-decoration: none;
+    &:hover {
+      color: #507c9b;
+    }
+
+    @include respond-to(mobile-small) {
+      font-size: 2.6rem;
+      font-weight: 600;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include respond-to(mobile-small) {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    &--img {
+      width: 150px;
+      position: absolute;
+      bottom: 120px;
+      left: 30%;
+    }
+  }
+
+  .overlay__nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    @include respond-to(mobile-small) {
+      text-align: start;
+      padding-left: 4rem;
+    }
+
+    li {
+      margin: 1rem 0;
+
+      @include respond-to(mobile-small) {
+        margin: 2rem 0;
+      }
+    }
+  }
+}

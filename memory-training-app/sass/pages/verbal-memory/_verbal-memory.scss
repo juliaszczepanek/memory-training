@@ -1,0 +1,100 @@
+.verbal-memory {
+  height: 100vh;
+  justify-items: center;
+  align-content: center;
+
+  &__container {
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    gap: 5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include respond-to(mobile-small) {
+      gap: 2.5rem;
+    }
+  }
+
+  &__title {
+    font-size: 3.4rem;
+
+    @include respond-to(mobile-small) {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__heading {
+    width: 80%;
+    font-weight: 500;
+    font-size: 3.1rem;
+
+    @include respond-to(mobile-small) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__points {
+    font-family: $font-primary;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+
+    @include respond-to(mobile-small) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__word {
+    font-family: $font-4;
+    font-size: 5rem;
+    font-weight: bold;
+    background-color: white;
+    padding: 2rem;
+    width: 100vw;
+
+    @include respond-to(mobile-small) {
+      font-size: 3.5rem;
+      padding: 1.2rem;
+    }
+  }
+
+  &__buttons--container {
+    margin-top: 2rem;
+    display: flex;
+    gap: 4rem;
+  }
+
+  &__answer {
+    color: $primary;
+    font-family: $font-primary;
+    background-color: white;
+    padding: 1rem 12rem;
+    border: 1px solid rgba(187, 187, 187, 0.4);
+    border-radius: 8px;
+    font-size: 2.4rem;
+
+    @include respond-to(mobile-small) {
+      padding: 0.5rem 12rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__button {
+    margin-top: auto;
+    align-self: center;
+    padding: 1.5rem 4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.6rem;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    @include respond-to(mobile-small) {
+      margin-top: 1rem;
+      font-size: 1.2rem !important;
+    }
+  }
+}

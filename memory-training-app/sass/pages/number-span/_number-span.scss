@@ -1,0 +1,106 @@
+.number-span {
+  height: fit-content;
+  min-height: 100vh;
+  justify-items: center;
+  align-content: center;
+
+  &__number {
+    font-size: 6rem;
+
+    @include respond-to(mobile-small) {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__number--box {
+    padding: 5rem 0;
+    background-color: white;
+    width: 100vw;
+
+    @include respond-to(mobile-small) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__container {
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    gap: 5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+
+    @include respond-to(mobile-small) {
+      gap: 2.5rem;
+      padding: 3rem;
+    }
+
+    &--result {
+      gap: 3rem;
+    }
+  }
+
+  &__result {
+    padding: 0px;
+  }
+
+  &__heading {
+    width: 80%;
+  }
+
+  &__answer {
+    color: $primary;
+    font-family: $font-primary;
+    background-color: white;
+    padding: 1rem 12rem;
+    font-size: 2.4rem;
+    border: 1px solid rgba(187, 187, 187, 0.4);
+    border-radius: 8px;
+
+    @include respond-to(mobile-small) {
+      padding: 0.5rem 12rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__title {
+    padding: 2rem 0 0 0;
+  }
+
+  &__instruction {
+    color: #1b395d;
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    padding: 0.5rem 3rem;
+    border: none;
+    font-size: 3rem;
+    border-radius: 5px;
+
+    &::placeholder {
+      color: $primary;
+      opacity: 0.6;
+      font-size: 2rem;
+    }
+
+    @include respond-to(mobile-small) {
+      padding: 0.5rem 2rem;
+    }
+  }
+
+  &__button {
+    margin-top: auto;
+    align-self: center;
+
+    &--result {
+      margin-top: 2rem;
+    }
+
+    @include respond-to(mobile-small) {
+      margin-top: 1rem;
+    }
+  }
+}
