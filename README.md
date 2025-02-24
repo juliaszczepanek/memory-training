@@ -22,6 +22,8 @@ A responsive web application designed as part of my master's thesis (stąd polsk
 
 Overview and introduction to cognitive training.
 
+<img width="1175" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.30.56.png">
+
 <img width="1175" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.31.05.png">
 
 <h3>Available Exercises</h3>
@@ -52,15 +54,20 @@ Immediate feedback on performance.
 
 Visualize personal progress across different tests.
 
-<img width="1175" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.30.56.png">
+<img width="1175" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.36.10.png">
+
+<h3>Login page</h3>
+
+<img width="1174" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.32.02.png">
 
 <h3>Mobile Views</h3>
 
 Mobile-friendly UI for exercises and navigation.
 
-<img width="450" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.38.02.png">
-<img width="450" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.37.51.png">
-<img width="450" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.37.38.png">
+<img width="400" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.37.26.png">
+<img width="400" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.38.02.png">
+<img width="400" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.37.51.png">
+<img width="400" src="./memory-training-app/screenshots/Screenshot 2025-02-24 at 20.37.38.png">
 
 <h2>🚀 Tech Stack</h2>
 
