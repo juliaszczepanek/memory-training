@@ -1,0 +1,189 @@
+.corsi-block {
+  height: fit-content;
+  min-height: 100vh;
+  justify-items: center;
+  align-content: center;
+
+  &__container {
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    gap: 5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+
+    @include respond-to(mobile-small) {
+      gap: 2.5rem;
+      padding: 3rem;
+    }
+  }
+
+  &__title {
+    padding: 2rem 0 0 0;
+
+    &--game {
+      padding-top: 2rem;
+      font-size: 3.2rem;
+      padding-bottom: 0;
+      font-weight: 600;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 1rem;
+  }
+
+  &__button {
+  }
+
+  &__feedback {
+    height: 20px;
+    display: flex;
+    padding-bottom: 10px;
+    font-family: $font-primary;
+    font-weight: 600;
+    color: rgb(65, 61, 95);
+    font-size: 1.6rem;
+
+    @include respond-to(mobile-small) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__instruction {
+    color: #1b395d;
+    margin-bottom: 2rem;
+  }
+
+  &__answer {
+    color: $primary;
+    font-family: $font-primary;
+    background-color: white;
+    padding: 1rem 12rem;
+    font-size: 2.4rem;
+    border: 1px solid rgba(187, 187, 187, 0.4);
+    border-radius: 8px;
+
+    @include respond-to(mobile-small) {
+      padding: 0.5rem 12rem;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+    position: relative;
+    margin: 0 auto;
+    transform: translateX(-20px);
+
+    @include respond-to(mobile-small) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      transform: none;
+      gap: 10px;
+      padding-bottom: 3rem;
+    }
+  }
+
+  &__item {
+    background-color: #d3d3d3;
+    border: 1px solid #444;
+    border-radius: 10px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+
+    @include respond-to(mobile-small) {
+      width: 53px;
+      height: 53px;
+      transform: none !important;
+      grid-column: auto !important;
+      grid-row: auto !important;
+    }
+
+    &.highlight {
+      background-color: $primary !important;
+      transition: background-color 0.3s ease;
+    }
+
+    &.wrong {
+      background-color: #e70b0b !important;
+      transition: background-color 0.3s ease;
+    }
+
+    &.clicked {
+      background-color: $primary;
+      transition: background-color 0.2s ease;
+    }
+
+    &--1 {
+      // background-color: palevioletred;
+      grid-column: 2;
+      grid-row: 5;
+      transform: translate(70px, -10px);
+    }
+
+    &--2 {
+      // background-color: turquoise;
+      grid-column: 4;
+      grid-row: 5;
+      transform: translate(100px, -30px);
+    }
+
+    &--3 {
+      // background-color: red;
+      grid-column: 2;
+      grid-row: 4;
+      transform: translate(-40px, 0px);
+    }
+
+    &--4 {
+      // background-color: purple;
+      grid-column: 4;
+      grid-row: 3;
+      transform: translate(20px, 10px);
+    }
+
+    &--5 {
+      // background-color: green;
+      grid-column: 3;
+      grid-row: 3;
+      transform: translate(-25px, -10px);
+    }
+    &--6 {
+      // background-color: yellow;
+      grid-column: 1;
+      grid-row: 2;
+      transform: translate(-10px, -10px);
+    }
+    &--7 {
+      // background-color: orange;
+      grid-column: 5;
+      grid-row: 2;
+      transform: translate(50px, -10px);
+    }
+    &--8 {
+      // background-color: blue;
+      grid-column: 4;
+      grid-row: 1;
+      transform: translate(30px, -20px);
+    }
+    &--9 {
+      // background-color: magenta;
+      grid-column: 3;
+      grid-row: 1;
+      transform: translateX(-15px);
+    }
+  }
+}
