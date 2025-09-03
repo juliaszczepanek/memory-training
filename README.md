@@ -1,75 +1,139 @@
-<h1>Memory Training App</h1>
+# Memory Training App
 
 A responsive web application designed as part of my master's thesis. It focuses on improving users' working memory through psychology-based cognitive exercises.
 
-✨ <strong>Features</strong>
+## ✨ Features
 
-🧠 Cognitive Training: Three exercises (Number Span, Verbal Memory, Corsi Block) to enhance working memory.
+- 🧠 **Cognitive Training** – three exercises (Number Span, Verbal Memory, Corsi Block).
+- 📈 **Performance Tracking** – results visualized with Plotly.js.
+- 🔐 **Firebase Authentication** – secure login & registration.
+- 🗃️ **Firestore Database** – stores results and user statistics.
+- 🎨 **Custom UI** – designed in Figma, implemented with Material UI.
+- 📱 **Fully Responsive** – optimized for desktop and mobile.
 
-📈 Performance Tracking: Results stored and visualized using interactive charts with Plotly.js.
+---
 
-🔐 Firebase Authentication: Secure login and user registration.
+## 📱 Mobile Preview
 
-🗃️ Firestore Database: Data storage for exercise results and user statistics.
+<p >
+  <img src="screenshoots/ezgif.com-video-to-gif-converter.gif" alt="Mobile demo of the app" width="375" />
+  <br />
+  <sub>Quick look at the mobile flow.</sub>
+</p>
 
-🎨 Custom UI: Designed entirely by myself in Figma, implemented using Material UI.
+---
 
-📱 Fully Responsive: Optimized for desktop and mobile devices.
+## 🖼️ Screens & Flows
 
-<h2>Mobile View</h2>
-<p>A short GIF showcasing mobile view</p>
-<img width="375" src="screenshoots/ezgif.com-video-to-gif-converter.gif">
+### Home
 
-<h2>Screenshoots</h2>
+<table>
+  <tr>
+    <td>
+      <img src="screenshoots/home1.png" alt="Home screen – hero/intro" width="100%" />
+      <br /><sub>Landing with quick actions.</sub>
+    </td>
+    <td>
+      <img src="screenshoots/home2.png" alt="Home screen – exercises overview" width="100%" />
+      <br /><sub>Exercises overview.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="screenshoots/home3.png" alt="Home screen – stats and cards" width="100%" />
+      <br /><sub>Stats cards at a glance.</sub>
+    </td>
+    <td>
+      <img src="screenshoots/home4.png" alt="Home screen – responsive layout" width="100%" />
+      <br /><sub>Responsive layout.</sub>
+    </td>
+  </tr>
+</table>
 
-<h2>HomePage</h2>
+### Navigation
 
-<img width="1000" src="screenshoots/home1.png">
-<img width="1000" src="screenshoots/home2.png">
-<img width="1000" src="screenshoots/home3.png">
-<img width="1000" src="screenshoots/home4.png">
+<table>
+  <tr>
+    <td>
+      <img src="screenshoots/nav.png" alt="Desktop top navigation bar" width="100%" />
+      <br /><sub>Top navigation on desktop.</sub>
+    </td>
+    <td width="380">
+      <img src="screenshoots/nav2.png" alt="Mobile drawer navigation" width="375" />
+      <br /><sub>Mobile drawer.</sub>
+    </td>
+  </tr>
+</table>
 
-<h2>Navigation</h2>
+### Corsi Block
 
-<img width="1000" src="screenshoots/nav.png">
-<img width="375" src="screenshoots/nav2.png">
+<table>
+  <tr>
+    <td>
+      <img src="screenshoots/corsi.png" alt="Corsi Block – desktop view" width="100%" />
+      <br /><sub>Spatial sequence test (desktop).</sub>
+    </td>
+    <td width="380">
+      <img src="screenshoots/corsi2.png" alt="Corsi Block – mobile view" width="375" />
+      <br /><sub>Same task on mobile.</sub>
+    </td>
+  </tr>
+</table>
 
-<h2>Corsi Block</h2>
+### Number Span
 
-<img width="1000" src="screenshoots/corsi.png">
-<img width="375" src="screenshoots/corsi2.png">
+<table>
+  <tr>
+    <td>
+      <img src="screenshoots/number2.png" alt="Number Span – exercise view" width="100%" />
+      <br /><sub>Digit span challenge.</sub>
+    </td>
+    <td>
+      <img src="screenshoots/number1.png" alt="Number Span – results view" width="100%" />
+      <br /><sub>Results and feedback.</sub>
+    </td>
+  </tr>
+</table>
 
-<h2>Number Span</h2>
+### Verbal Memory
 
-<img width="1000" src="screenshoots/number2.png">
-<img width="1000" src="screenshoots/number1.png">
+<p >
+  <img src="screenshoots/verbal.png" alt="Verbal Memory exercise screen" width="1000" />
+  <br /><sub>Word recall flow.</sub>
+</p>
 
-<h2>Verbal Memory</h2>
+### Auth
 
-<img width="1000" src="screenshoots/verbal.png">
+<table>
+  <tr>
+    <td>
+      <img src="screenshoots/login.png" alt="Login form" width="100%" />
+      <br /><sub>Secure login with Firebase Auth.</sub>
+    </td>
+    <td>
+      <img src="screenshoots/signup.png" alt="Signup form" width="100%" />
+      <br /><sub>Simple account creation.</sub>
+    </td>
+  </tr>
+</table>
 
-<h2>Login Form</h2>
+### Profile
 
-<img width="1000" src="screenshoots/login.png">
+<p >
+  <img src="screenshoots/profile.png" alt="User profile screen" width="1000" />
+  <br /><sub>Personal stats & settings.</sub>
+</p>
 
-<h2>Signup Form</h2>
+---
 
-<img width="1000" src="screenshoots/signup.png">
+## 🚀 Tech Stack
 
-<h2>Profile</h2>
-
-<img width="1000" src="screenshoots/profile.png">
-
-<h2>🚀 Tech Stack</h2>
-
-<ul>
-  <li>React.js</li>
-  <li>JavaScript</li>
-  <li>Firebase & Firestore</li>
-  <li>React Router</li>
-  <li>Material UI</li>
-  <li>Plotly.js</li>
-  <li>CSS (SASS)</li>
-  <li>Vite</li>
-  <li>ReactBootstrap</li>
-</ul>
+- React.js
+- JavaScript
+- Firebase (Auth) & Firestore
+- React Router
+- Material UI
+- Plotly.js
+- CSS (Sass)
+- Vite
+- React Bootstrap
