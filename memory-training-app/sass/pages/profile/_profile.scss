@@ -90,6 +90,10 @@
     font-weight: 400;
   }
 
+  &__mail{
+     filter: blur(3px);
+  }
+
   &__card {
     display: flex;
     flex-direction: column;
@@ -120,8 +124,8 @@
     }
 
     @include respond-to(mobile-small) {
-      padding: 2rem;
-      max-width: 275px;
+      padding: 1.5rem;
+      max-width: 290px;
     }
   }
 
