@@ -16,14 +16,11 @@ A responsive web application designed as part of my master's thesis. It focuses 
 
 📱 Fully Responsive: Optimized for desktop and mobile devices.
 
-<video src="/screenshoots/ezgif.com-video-to-mp4-converter.mp4"
-       width="375"
-       height="650"
-       controls
-       muted
-       playsinline>
-Your browser does not support the video tag.
-</video>
+<p>
+  <a href="screenshoots/ezgif.com-video-to-mp4-converter.mp4">
+    <img src="screenshoots/preview.png" width="375" alt="App demo" />
+  </a>
+</p>
 
 <h2>🚀 Tech Stack</h2>
 
