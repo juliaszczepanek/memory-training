@@ -126,6 +126,10 @@ A responsive web application designed as part of my master's thesis. It focuses 
 
 ---
 
+<a href="https://memory-training-mta.netlify.app/">Live Preview</a>
+
+---
+
 ## 🚀 Tech Stack
 
 - React.js
