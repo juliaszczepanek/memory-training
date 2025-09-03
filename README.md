@@ -16,7 +16,7 @@ A responsive web application designed as part of my master's thesis. It focuses 
 
 📱 Fully Responsive: Optimized for desktop and mobile devices.
 
-<video src="screenshoots/ezgif.com-resize-video.mov"
+<video src="../screenshoots/ezgif.com-resize-video.mov"
        width="375"
        height="650"
        controls
