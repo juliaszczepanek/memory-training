@@ -18,3 +18,8 @@ body {
   margin: 0 auto;
   background-color: $background-medium;
 }
+
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { overflow-x: hidden; }  

@@ -6,15 +6,14 @@
     z-index: 3;
     top: 40px;
     right: 40px;
-    cursor: pointer;
-    background-color: $white;
     border-radius: 50%;
-    display: inline;
     width: 60px;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: $white;
+    cursor: pointer;
 
     @include respond-to(mobile-small) {
       top: 20px;
@@ -38,9 +37,9 @@
     justify-content: center;
 
     @include respond-to(mobile-small) {
-      padding-top: 8rem;
       justify-content: start;
       align-items: start;
+      padding-top: 8rem;
     }
   }
 
@@ -49,14 +48,14 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    background-color: $white;
     top: 40px;
     right: 40px;
-    cursor: pointer;
-    border-radius: 50%;
     width: 60px;
     height: 60px;
     border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: $white;
 
     @include respond-to(mobile-small) {
       top: 20px;
@@ -72,13 +71,18 @@
     color: $primary;
     font-size: 4rem;
     text-decoration: none;
+
     &:hover {
       color: #507c9b;
     }
 
+    @include respond-to(tablet-large) {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
     @include respond-to(mobile-small) {
       font-size: 2.6rem;
-      font-weight: 600;
     }
   }
 
@@ -92,8 +96,8 @@
     }
 
     &--img {
-      width: 150px;
       position: absolute;
+      width: 150px;
       bottom: 120px;
       left: 30%;
     }

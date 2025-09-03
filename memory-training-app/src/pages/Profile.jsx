@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useAuth } from "../contexts/AuthContext";
 import BarChartIcon from "@mui/icons-material/BarChart";
@@ -41,19 +41,19 @@ export default function Profile() {
   const chartConfigs = {
     corsiBlock: {
       elementId: "corsi-block-chart",
-      color: "rgb(250, 126, 44)",
+      color: "#F7AA1E",
       range: [0, 9],
       dtick: 1,
     },
     numberSpan: {
       elementId: "number-span-chart",
-      color: "rgb(14, 120, 200)",
+      color: "#EA5C2B",
       range: [0, 15],
       dtick: 2,
     },
     verbalMemory: {
       elementId: "verbal-memory-chart",
-      color: "rgb(240, 250, 127)",
+      color: "#305F78",
       range: [0, 50],
       dtick: 5,
     },
@@ -103,10 +103,9 @@ export default function Profile() {
     <div className="profile">
       <div className="profile__container">
         <div className="profile__info">
-          {/* <h2 className="heading heading--1">Profil użytkownika</h2> */}
           <div className="profile__img--box">
             <div className="profile__img">
-              <AccountCircleIcon sx={{ fontSize: "12rem" }} />
+              <AccountCircleIcon sx={{ fontSize: { xs: "9rem", sm: "10rem", md: "12rem"}}} />
             </div>
           </div>
           <div className="profile__data">
@@ -127,6 +126,7 @@ export default function Profile() {
           <h1 className="profile__title typo typo--title">
             Statystyki Użytkownika
           </h1>
+          
           <div className="profile__card profile__statistics--number-span">
             <h2 className="profile__sub">
               Number Span <BarChartIcon sx={{ fontSize: "3rem" }} />
@@ -177,6 +177,7 @@ export default function Profile() {
               />
             )}
           </div>
+         
         </div>
       </div>
     </div>

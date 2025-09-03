@@ -1,9 +1,7 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import KeyIcon from "@mui/icons-material/Key";
 
 export default function Auth() {
   const emailRef = useRef();
@@ -48,7 +46,7 @@ export default function Auth() {
             <img className="auth__img" src="logo-2.png" alt="" />
           </div>
           <div className="auth__form__box">
-            {error && <Alert variant="danger">{error}</Alert>}
+            
             <Form onSubmit={handleSubmit} className="auth__form">
               <h1 className="auth__heading heading heading--4">
                 Rejestracja konta
@@ -95,6 +93,8 @@ export default function Auth() {
                   placeholder="Potwierdź swoje hasło"
                 ></Form.Control>
               </Form.Group>
+
+            <div className="alert">{error && <Alert variant="danger">{error}</Alert>}</div>
               <Button
                 disabled={loading}
                 className="auth__button button button--dark"

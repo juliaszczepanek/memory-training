@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import words from "./../assets/wordswithweight.json";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
@@ -11,7 +11,7 @@ export default function VerbalMemory() {
   const [isGameOn, setIsGameOn] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [randomWord, setRandomWord] = useState("");
-  const [level, setLevel] = useState(0);
+  const [level, setLevel] = useState(-1);
   const navigate = useNavigate();
   const { currentUser } = useAuth();
 
@@ -118,6 +118,7 @@ export default function VerbalMemory() {
     }
 
     setRandomWord(selectedWord);
+    console.log(selectedWord)
     setListOfWords((oldArray) => [...oldArray, selectedWord]);
     setLevel((level) => level + 1);
   };
@@ -148,11 +149,10 @@ export default function VerbalMemory() {
             Verbal Memory Test
           </h1>
           <h2 className="verbal-memory__heading typo typo--subtitle">
-            Popraw swoją pamięć operacyjną, łącząc zapamiętywanie informacji z
-            wykonywaniem prostych zadań obliczeniowych
+          Popraw swoją pamięć werbalną, rozpoznając wcześniej wyświetlone słowa
           </h2>
           <p className="verbal-memory__instruction typo typo--instruction">
-            Zapamiętaj sekwencję wyświetlanych klocków i odtwórz ją.
+          Dla każdego słowa określ, czy było już wcześniej wyświetlone (ZNANE), czy pojawia się po raz pierwszy (NOWE).
             <br /> Naciśnij START, aby rozpocząć
           </p>
           <button
@@ -189,20 +189,22 @@ export default function VerbalMemory() {
       )}
       {isGameOver && (
         <div className="verbal-memory__container">
-          <h1 className="verbal-memory__title heading heading--1">
+          <h1 className="verbal-memory__title typo typo--title">
             Koniec Gry!
           </h1>
-          <h2 className="verbal-memory__heading heading heading--2">
+<div className="verbal-memory__score--container" >
+             <ModalVerbalMemory number={level} />
+          <h2 className="verbal-memory__heading  typo typo--subtitle" style={{display: "inline-block"}}>
             Twój wynik:
           </h2>
+          </div>
           <h2 className="verbal-memory__answer">{level}</h2>
           <button
             onClick={handleEndGame}
-            className="verbal-memory__button button button--dark"
+            className="verbal-memory__button-1 button button--light"
           >
             ZAKOŃCZ
           </button>
-          <ModalVerbalMemory number={level} />
         </div>
       )}
     </div>

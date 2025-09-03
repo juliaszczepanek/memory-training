@@ -7,7 +7,7 @@ import {
   CorsiBlock,
   VerbalMemory,
   TestModule,
-  MemoryStartegies,
+  MemoryStrategies,
 } from "./pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./utility/ScrollToTop";
@@ -28,7 +28,7 @@ function App() {
     { path: "/number-span", element: <NumberSpan /> },
     { path: "/verbal-memory", element: <VerbalMemory /> },
     { path: "/corsi-block", element: <CorsiBlock /> },
-    { path: "/memory-strategies", element: <MemoryStartegies /> },
+    { path: "/memory-strategies", element: <MemoryStrategies /> },
     {
       path: "/test-module",
       element: (

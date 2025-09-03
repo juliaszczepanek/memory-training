@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, addDoc, doc, setDoc } from "firebase/firestore";
@@ -196,9 +196,12 @@ export default function NumberSpan() {
               <h1 className="number-span__result typo typo--title">
                 Błędna odpowiedź!
               </h1>
-              <h2 className="number-span__heading typo typo--subtitle">
-                Twój wynik to: {level - 1}
-              </h2>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+                <h2 className="number-span__heading typo typo--subtitle">
+                  Twój wynik to: <b>{level - 1}</b>
+                </h2>
+                <ModalNumberSpan number={level - 1} />
+              </div>
               <h2 className="number-span__heading typo typo--subtitle">
                 Twoja odpowiedź
               </h2>
@@ -214,7 +217,7 @@ export default function NumberSpan() {
                 >
                   Zakończ
                 </button>
-                <ModalNumberSpan number={level - 1} />
+                
               </div>
             </div>
           )}

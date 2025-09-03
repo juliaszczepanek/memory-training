@@ -4,35 +4,86 @@
   align-content: center;
 
   &__container {
-    margin: 0 auto;
     display: flex;
-    text-align: center;
-    gap: 5rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    gap: 4rem;
+
+    @include respond-to(tablet-large) {
+      gap: 3.5rem;
+    }
 
     @include respond-to(mobile-small) {
       gap: 2.5rem;
     }
   }
 
-  &__title {
-    font-size: 3.4rem;
+  &__title-1 {
+    font-size: 3rem !important;
 
-    @include respond-to(mobile-small) {
-      font-size: 2.2rem;
+    @include respond-to(mobile-medium){
+      font-size: 2rem;
     }
   }
 
-  &__heading {
-    width: 80%;
-    font-weight: 500;
-    font-size: 3.1rem;
+  &__instruction {
+    color: #1b395d;
+    width: 80% !important;
+    margin-bottom: 2rem;
 
-    @include respond-to(mobile-small) {
-      font-size: 1.8rem;
+    @include respond-to(tablet-large){
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+      width: 80%;
     }
+
+    @include respond-to(mobile-medium){
+      width: 90%;
+      font-size: 1.4rem !important;
+      line-height: 2.2rem;
+    }
+
+    @include respond-to(mobile-small){
+      font-size: 1.3rem !important;
+    }
+  }
+
+  &__heading{
+
+
+    @include respond-to(desktop-small){
+      font-size: 2.5rem !important;
+      width: 80% !important;
+      line-height: 3rem;
+    }
+
+    @include respond-to(tablet-large){
+      font-size: 2rem !important;
+    }
+
+    @include respond-to(mobile-medium){
+      font-size: 1.8rem !important;
+      width: 80% !important;
+      line-height: 3rem;
+    }
+
+    @include respond-to(mobile-small){
+      font-size: 1.6rem !important;
+      font-weight: 600;
+    }
+
+  }
+
+  &__score--container{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: row;
+    text-wrap: nowrap;
+    align-items: center;
   }
 
   &__points {
@@ -41,17 +92,23 @@
     margin-bottom: 1.5rem;
 
     @include respond-to(mobile-small) {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
     }
   }
 
   &__word {
+    padding: 2rem;
+    width: 100vw;
     font-family: $font-4;
     font-size: 5rem;
     font-weight: bold;
     background-color: white;
-    padding: 2rem;
-    width: 100vw;
+
+
+    @include respond-to(tablet-large) {
+      font-size: 4rem;
+      padding: 1.5rem;
+    }
 
     @include respond-to(mobile-small) {
       font-size: 3.5rem;
@@ -60,9 +117,9 @@
   }
 
   &__buttons--container {
-    margin-top: 2rem;
     display: flex;
     gap: 4rem;
+    margin-top: 2rem;
   }
 
   &__answer {
@@ -96,5 +153,14 @@
       margin-top: 1rem;
       font-size: 1.2rem !important;
     }
+  }
+
+  &__button-1 {
+
+    @include respond-to(mobile-small){
+      font-size: 1.4rem;
+      padding: 0.8rem 2rem;
+    }
+
   }
 }

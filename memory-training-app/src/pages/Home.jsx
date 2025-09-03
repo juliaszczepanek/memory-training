@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import VerticalAlignTopIcon from "@mui/icons-material/VerticalAlignTop";
 
@@ -82,7 +82,7 @@ export default function Home() {
             {
               img: "corsi.png",
               heading: "Corsi Block",
-              text: "Śledź migające bloczki i odtwórz ich kolejność w poprawnym układzie. Corsi Block to znane ćwiczenie poprawiające zdolności przestrzenno-wizualne i pamięć krótkotrwałą.",
+              text: "Sprawdź swoją pamięć wzrokowo-przestrzenną, zapamiętując sekwencję migających bloczków i odtwarzając ją w poprawnej kolejności. Ćwiczenie wspiera szybkie przetwarzanie informacji oraz wzmacnia pamięć krótkotrwałą.",
               route: "corsi_block",
             },
           ].map(({ img, heading, text, route }) => (
@@ -103,7 +103,7 @@ export default function Home() {
             </div>
           ))}
         </section>
-        <section className="test-section">
+        {/* <section className="test-section">
           <h2 className="test-section__heading heading heading--cap">
             Moduł Testowy
           </h2>
@@ -143,7 +143,7 @@ export default function Home() {
               Rozpocznij Test
             </button>
           </div>
-        </section>
+        </section> */}
         <section className="about-us">
           <h2 className="about-us__heading heading heading--cap">
             O Aplikacji
@@ -173,6 +173,3 @@ export default function Home() {
     </>
   );
 }
-// przyciski start na testach mogłyby być minimalnie wyżej
-// wszystkie teksty wyśrodkować
-//

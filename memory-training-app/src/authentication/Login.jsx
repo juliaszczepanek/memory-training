@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Card, Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import KeyIcon from "@mui/icons-material/Key";
@@ -62,7 +62,7 @@ export default function Login() {
               ></Form.Control>
             </Form.Group>
 
-            {error && <Alert variant="danger">{error}</Alert>}
+            <div className="alert">{error && <Alert variant="danger">{error}</Alert>}</div>
             <Button
               disabled={loading}
               className="auth__button button button--dark"

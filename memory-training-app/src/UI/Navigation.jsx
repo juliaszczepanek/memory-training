@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link, useNavigate } from "react-router-dom";
@@ -37,7 +37,7 @@ export default function Navigation() {
       <div className="navigation__container" onClick={handleOpenMenu}>
         <MenuIcon
           sx={{
-            fontSize: { xs: "3.5rem", sm: "1.5rem", md: "4rem" },
+            fontSize: { xs: "3.5rem", sm: "3.7rem", md: "4rem" },
           }}
         ></MenuIcon>
       </div>
@@ -46,7 +46,7 @@ export default function Navigation() {
           <button className="close-button" onClick={handleCloseMenu}>
             <CloseIcon
               sx={{
-                fontSize: { xs: "3.5rem", sm: "1.5rem", md: "4rem" },
+                fontSize: { xs: "3.5rem", sm: "3.7rem", md: "4rem" },
               }}
             />
           </button>
@@ -103,7 +103,7 @@ export default function Navigation() {
                   className="navigation__link"
                   onClick={handleCloseMenu}
                 >
-                  TECHNIKI ZAPAMIĘTYWANIA
+                  STRATEGIE ZAPAMIĘTYWANIA
                 </Link>
               </li>
               <li>

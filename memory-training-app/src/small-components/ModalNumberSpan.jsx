@@ -6,7 +6,6 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
-import { fontFamily, padding } from "@mui/system";
 
 const boxStyle = {
   position: "absolute",
@@ -14,15 +13,15 @@ const boxStyle = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: {
-    xs: 300,
-    sm: 400,
+    xs: 350,
+    sm: 500,
     lg: 500,
   },
-  height: "350px",
+  height: { md: "550px", sm: "500px", xs: "480px"},
   bgcolor: "#fefefe",
   borderRadius: "8px",
   boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-  padding: "6rem 6rem 10rem 6rem",
+  padding: { md: "6rem 6rem 10rem 6rem", sm: "8rem 4rem 4rem 4rem", xs: "6rem 4rem 8rem 4rem"},
 };
 
 const closeButtonStyle = {
@@ -44,18 +43,25 @@ export default function ModalNumberSpan({ number }) {
   return (
     <div>
       <Button
-        variant="contained"
-        style={{
-          backgroundColor: "#eeeeee",
-          color: "#000",
-          margin: "20px",
-          fontWeight: 600,
-          borderRadius: "4px",
-          fontFamily: "Montserrat",
-        }}
-        onClick={handleOpen}
-      >
-        Co oznacza mój wynik?
+         variant="contained"
+         style={{
+           backgroundColor: "#eeeeee",
+           color: "#000",
+           margin: { xs: "10px", md: "20px"},
+           width: "35px",
+           height: "35px",
+           minWidth: "30px",
+           minHeight: "30px",
+           borderRadius: "50%",
+           padding: 0,
+           fontSize: "1.6rem",
+           fontWeight: 600,
+           fontFamily: "Montserrat",
+           lineHeight: "40px",  
+           textAlign: "center", 
+         }}
+         onClick={handleOpen}>
+        ?
       </Button>
 
       <Modal
@@ -82,7 +88,7 @@ export default function ModalNumberSpan({ number }) {
               sx={{
                 mb: 4,
                 fontWeight: "bold",
-                fontSize: "2rem",
+                fontSize: {md: "2rem", xs: "1.5rem"},
                 fontFamily: "Montserrat",
                 textAlign: "center",
               }}
@@ -102,7 +108,7 @@ export default function ModalNumberSpan({ number }) {
               component="div"
               sx={{
                 mb: 3,
-                fontSize: "1.4rem",
+                fontSize: {md: "1.4rem", xs: "1rem"},
                 lineHeight: 2,
                 fontFamily: "Montserrat",
               }}
@@ -129,7 +135,7 @@ export default function ModalNumberSpan({ number }) {
 
             <Typography
               variant="body1"
-              sx={{ fontSize: "1.4rem", fontFamily: "Montserrat" }}
+              sx={{ fontSize: {md: "1.4rem", xs: "1rem"}, fontFamily: "Montserrat" }}
             >
               Pamiętaj, że jest to jedynie orientacyjna interpretacja. Na
               faktyczny wynik mogą wpływać rozproszenie, strategia

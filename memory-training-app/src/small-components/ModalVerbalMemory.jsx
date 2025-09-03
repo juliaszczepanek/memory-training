@@ -12,25 +12,28 @@ const boxStyle = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "90%",
-  maxWidth: 500,
-  bgcolor: "#fff",
+  width: {
+    xs: 350,
+    sm: 550,
+    lg: 600,
+  },
+  height: { md: "550px", sm: "400px", xs: "480px"},
+  bgcolor: "#fefefe",
   borderRadius: "8px",
   boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-  padding: "4rem",
+  padding: { md: "6rem 6rem 10rem 6rem", sm: "8rem 4rem 4rem 4rem", xs: "6rem 4rem 8rem 4rem"},
 };
 
 const closeButtonStyle = {
   position: "absolute",
-  top: "1.5rem",
-  right: "1.5rem",
+  top: "2rem",
+  right: "2rem",
   background: "none",
   border: "none",
   cursor: "pointer",
   color: "#333",
   fontSize: "2rem",
 };
-
 export default function ModalVerbalMemory({ score }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -38,18 +41,26 @@ export default function ModalVerbalMemory({ score }) {
 
   return (
     <div>
-      <Button
-        variant="contained"
-        style={{
-          backgroundColor: "#eeeeee",
-          color: "#000",
-          margin: "20px",
-          fontWeight: 600,
-          borderRadius: "4px",
-        }}
-        onClick={handleOpen}
-      >
-        Co oznacza mój wynik?
+ <Button
+         variant="contained"
+         style={{
+           backgroundColor: "#eeeeee",
+           color: "#000",
+           margin: { xs: "10px", md: "20px"},
+           width: "35px",
+           height: "35px",
+           minWidth: "30px",
+           minHeight: "30px",
+           borderRadius: "50%",
+           padding: 0,
+           fontSize: "1.6rem",
+           fontWeight: 600,
+           fontFamily: "Montserrat",
+           lineHeight: "40px",  
+           textAlign: "center", 
+         }}
+         onClick={handleOpen}>
+        ?
       </Button>
 
       <Modal
@@ -73,19 +84,31 @@ export default function ModalVerbalMemory({ score }) {
               id="modal-verbal-memory-title"
               variant="h4"
               component="h2"
-              sx={{ mb: 2, fontWeight: "bold" }}
+                sx={{
+                mb: 4,
+                fontWeight: "bold",
+                fontSize: {md: "2rem", xs: "1.5rem"},
+                fontFamily: "Montserrat",
+                textAlign: "center",
+              }}
             >
               Interpretacja wyniku Verbal Memory
             </Typography>
 
-            <Typography variant="body1">
+            <Typography variant="body1"               sx={{ fontFamily: "Montserrat", mb: 2, fontSize: "1.4rem" }}
+>
               <strong>Twój wynik:</strong> {score}
             </Typography>
 
             <Typography
               variant="body1"
               component="div"
-              sx={{ mb: 2, lineHeight: 1.6 }}
+              sx={{
+                mb: 3,
+                fontSize: {md: "1.4rem", xs: "1rem"},
+                lineHeight: 2,
+                fontFamily: "Montserrat",
+              }}
             >
               <ul>
                 <li>
@@ -107,7 +130,8 @@ export default function ModalVerbalMemory({ score }) {
               </ul>
             </Typography>
 
-            <Typography variant="body1">
+            <Typography variant="body1"               sx={{  fontSize: {md: "1.4rem", xs: "1rem"}, fontFamily: "Montserrat" }}
+>
               Jest to ćwiczenie orientacyjne, a nie formalna metoda kliniczna.
               Czynniki takie jak poziom uwagi, strategia zapamiętywania czy
               warunki mogą znacząco wpłynąć na wynik.

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, addDoc, doc, setDoc } from "firebase/firestore";
@@ -8,24 +8,49 @@ import { ModalCorsiBlock } from "./../small-components";
 export default function CorsiBlock() {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
-
   const levels = [4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9];
-
   const [isGameOn, setIsGameOn] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
   const [levelIndex, setLevelIndex] = useState(0);
-
   const [blocksToShow, setBlocksToShow] = useState([]);
   const [canClick, setCanClick] = useState(false);
   const [userSequence, setUserSequence] = useState([]);
   const [hasSequenceStarted, setHasSequenceStarted] = useState(false);
-
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [livesHistory, setLivesHistory] = useState([1, 1]);
   const [currentMaxLevel, setCurrentMaxLevel] = useState(0);
-
+  const startLockRef = useRef(false);
   const isWrongSequenceHandled = useRef(false);
   const isGameEnded = useRef(false);
+  const timeoutsRef = useRef([]);
+
+  const [currentLevel, setCurrentLevel] = useState(0)
+  const clearAllTimeouts = () => {
+  timeoutsRef.current.forEach((t) => clearTimeout(t));
+  timeoutsRef.current = [];
+  };
+
+  const lastResultByLenRef = useRef({}); 
+
+
+  const levelIndexRef = useRef(0);
+  useEffect(() => { levelIndexRef.current = levelIndex; }, [levelIndex]);
+
+
+  const pulseBlock = (id) => {
+    const block = document.getElementById(`item--${id}`);
+    if (!block) return;
+    block.classList.remove("highlight");
+    void block.offsetWidth; 
+    block.classList.add("highlight");
+    const t = setTimeout(() => block.classList.remove("highlight"), 1000); 
+    timeoutsRef.current.push(t);
+  };
+
+  const bumpLevel = () => {
+    levelIndexRef.current = levelIndexRef.current + 1;
+    setLevelIndex(levelIndexRef.current);
+  };
 
   const saveResultToFirestore = async (score, user) => {
     if (!user) {
@@ -47,6 +72,11 @@ export default function CorsiBlock() {
   };
 
   const handleGameStart = () => {
+    clearAllTimeouts();
+    isGameEnded.current = false;
+    levelIndexRef.current = 0;
+    lastResultByLenRef.current = {};
+    startLockRef.current = false;
     setIsGameOn(true);
     setIsGameOver(false);
     setLevelIndex(0);
@@ -58,6 +88,7 @@ export default function CorsiBlock() {
   };
 
   const generateSequence = (length) => {
+
     const seq = [];
     for (let i = 0; i < length; i++) {
       seq.push(Math.floor(Math.random() * 9));
@@ -66,46 +97,42 @@ export default function CorsiBlock() {
   };
 
   const handleStartSequence = () => {
-    if (levelIndex >= levels.length) {
-      handleEndGame();
-      return;
+        setCurrentLevel(prev => prev +1)
+    if (startLockRef.current || hasSequenceStarted || !isGameOn || isGameOver) return;
+
+    startLockRef.current = true; 
+
+    if (levelIndexRef.current >= levels.length) {
+        handleEndGame();
+        return;
     }
 
     isWrongSequenceHandled.current = false;
-
     setHasSequenceStarted(true);
     setFeedbackMessage("");
     setUserSequence([]);
     setCanClick(false);
 
     setTimeout(() => {
-      const sequence = generateSequence(levels[levelIndex]);
+    const idx = levelIndexRef.current;             
+    const sequence = generateSequence(levels[idx]); 
       setBlocksToShow(sequence);
       showSequenceToUser(sequence);
     }, 1000);
   };
 
+
+
   const showSequenceToUser = (sequence) => {
-    let totalDuration = 0;
-    sequence.forEach((num, index) => {
-      const highlightDelay = 1000 * index;
-      setTimeout(() => {
-        highlightBlock(num);
-      }, highlightDelay);
-      totalDuration = highlightDelay + 1000;
-    });
+  clearAllTimeouts();
+  const step = 1000 + 200; 
+  sequence.forEach((num, idx) => {
+    const t = setTimeout(() => pulseBlock(num), step * idx);
+    timeoutsRef.current.push(t);
+  });
 
-    setTimeout(() => {
-      setCanClick(true);
-    }, totalDuration + 200);
-  };
-
-  const highlightBlock = (id) => {
-    const block = document.getElementById(`item--${id}`);
-    if (block) {
-      block.classList.add("highlight");
-      setTimeout(() => block.classList.remove("highlight"), 800);
-    }
+  const done = setTimeout(() => setCanClick(true), step * sequence.length);
+  timeoutsRef.current.push(done);
   };
 
   const handleBlockClick = (id, e) => {
@@ -115,13 +142,11 @@ export default function CorsiBlock() {
     if (!canClick) return;
 
     setCanClick(true);
-
     highlightUserClick(id, 500);
 
     setUserSequence((prev) => {
       const updated = [...prev, id];
       const clickIndex = updated.length - 1;
-      console.log("block clicked: ", id);
       const isCorrect = blocksToShow[clickIndex] === id;
       if (!isCorrect) {
         if (!isWrongSequenceHandled.current) {
@@ -158,45 +183,49 @@ export default function CorsiBlock() {
   };
 
   const handleCorrectSequence = () => {
-    setFeedbackMessage(
-      "Brawo! Prawidłowa sekwencja. Kliknij 'Rozpocznij' aby przejść dalej."
-    );
-    setHasSequenceStarted(false);
-    setCanClick(false);
+  setFeedbackMessage(<>Brawo! Prawidłowa sekwencja. Kliknij przycisk Rozpocznij aby przejść dalej.</>);
+  setHasSequenceStarted(false);
+  setCanClick(false);
 
-    const lengthThisLevel = levels[levelIndex];
-    if (lengthThisLevel > currentMaxLevel) {
-      setCurrentMaxLevel(lengthThisLevel);
-    }
 
-    setLevelIndex((prev) => prev + 1);
+ const lengthThisLevel = levels[levelIndexRef.current];
+  if (lengthThisLevel > currentMaxLevel) {
+    setCurrentMaxLevel(lengthThisLevel);
+  }
 
-    setLivesHistory([1, 1]);
-  };
+  lastResultByLenRef.current[lengthThisLevel] = 'ok';
 
-  const handleWrongSequence = () => {
-    setFeedbackMessage(
-      "Błędna sekwencja! Kliknij 'Rozpocznij', aby przejść dalej."
-    );
-    setCanClick(false);
-    setHasSequenceStarted(false);
-    const lengthThisLevel = levels[levelIndex];
-    if (lengthThisLevel > currentMaxLevel) {
-      setCurrentMaxLevel(lengthThisLevel);
-    }
+  startLockRef.current = false; 
+  bumpLevel()
 
-    setLevelIndex((prev) => prev + 1);
+};
 
-    setLivesHistory((prev) => {
-      const updated = [...prev, 0];
 
-      if (updated.slice(-2).every((life) => life === 0)) {
-        setFeedbackMessage("Koniec gry!");
-        handleEndGame();
-      }
-      return updated;
-    });
-  };
+const handleWrongSequence = () => {
+
+  setFeedbackMessage(<>Błędna sekwencja! Kliknij przycisk Rozpocznij, aby przejść dalej.</>);
+  setHasSequenceStarted(false);
+  setCanClick(false);
+
+  const lengthThisLevel = levels[levelIndexRef.current];
+
+
+  if (lastResultByLenRef.current[lengthThisLevel] === 'wrong') {
+
+      setFeedbackMessage("Koniec gry!");
+      startLockRef.current = false;
+      handleEndGame();
+      return;
+
+  }
+
+
+ lastResultByLenRef.current[lengthThisLevel] = 'wrong';
+
+   startLockRef.current = false; 
+
+bumpLevel()
+};
 
   const handleEndGame = async () => {
     if (isGameEnded.current) {
@@ -204,7 +233,10 @@ export default function CorsiBlock() {
       return;
     }
     isGameEnded.current = true;
-
+    clearAllTimeouts()
+    setCanClick(false)
+    startLockRef.current = false;
+    
     await saveResultToFirestore(currentMaxLevel, currentUser);
 
     setIsGameOn(false);
@@ -241,13 +273,13 @@ export default function CorsiBlock() {
       {isGameOn && !isGameOver && (
         <div className="corsi-block__container">
           <h1 className="corsi-block__title heading heading--1">
-            Poziom: {currentLevelNumber}
+            Poziom: {currentLevel}
           </h1>
           <div
             className="corsi-block__feedback"
             style={{
               visibility: feedbackMessage ? "visible" : "hidden",
-              minHeight: "2rem",
+              minHeight: "1rem",
               marginBottom: "1rem",
             }}
           >
@@ -283,10 +315,12 @@ export default function CorsiBlock() {
       {isGameOver && (
         <div className="corsi-block__container">
           <h1 className="corsi-block__title typo typo--title">Koniec Gry!</h1>
-          <h2 className="corsi-block__heading typo typo--subtitle">
+          <div className="corsi-block__score--container">
+          <ModalCorsiBlock score={currentMaxLevel} />
+          <h2 className="corsi-block__heading typo typo--subtitle" style={{display: "inline-block"}}>
             Twój wynik:
-          </h2>
-          <h2 className="corsi-block__answer">{currentMaxLevel}</h2>
+          </h2></div>
+          <h2 className="corsi-block__answer">{currentMaxLevel}</h2>  
 
           <button
             onClick={() => navigate("/")}
@@ -294,8 +328,6 @@ export default function CorsiBlock() {
           >
             ZAKOŃCZ
           </button>
-
-          <ModalCorsiBlock score={currentMaxLevel} />
         </div>
       )}
     </div>

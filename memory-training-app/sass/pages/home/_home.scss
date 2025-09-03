@@ -11,9 +11,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     cursor: pointer;
     background-color: $white;
   }
@@ -22,16 +22,17 @@
 .header {
   display: flex;
   justify-self: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20rem 0;
+  width: 100%;
   background-image: linear-gradient(
     to bottom,
     $background-light,
     $background-medium
   );
   clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 
   @include respond-to(mobile-small) {
@@ -44,55 +45,98 @@
     width: 30%;
     padding: 2rem 0;
 
-    @include respond-to(mobile-small) {
-      margin: 0 auto;
+    @include respond-to(tablet-large){
+      width: 35%;
+      height: 35%;
+    }
+
+    @include respond-to(mobile-medium){
       height: 60%;
+      margin: 0 auto;
       width: 60%;
     }
+
   }
 
   &__heading {
-    font-family: $font-primary;
-    color: $primary;
-    font-size: 3.5rem;
     width: 70%;
-    text-align: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
+    font-family: $font-primary;
+    color: $primary;
+    text-align: center;
+    font-size: 3.5rem;
+
+
+    @include respond-to(tablet-large){
+      font-size: 3.3rem;
+      width: 80%;
+    }
+
+    @include respond-to(tablet){
+      font-size: 3rem;
+    }
+
+    @include respond-to(mobile-medium){
+      font-size: 2.7rem;
+      line-height: 3.8rem;
+      width: 90%;
+      padding-top: 2rem;
+    }
 
     @include respond-to(mobile-small) {
-      padding-top: 2rem;
       font-size: 2.5rem;
       width: 100%;
-      line-height: 3.8rem;
     }
   }
 }
 
 .welcome-section {
-  padding: 14rem 0;
-  clip-path: polygon(0 18%, 100% 0%, 100% 88%, 0% 100%);
-  margin-top: -80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 600px;
+  padding: 14rem 0;
+  margin-top: -80px;
+  clip-path: polygon(0 18%, 100% 0%, 100% 88%, 0% 100%);
   background-color: $background-light;
+
+
+  @include respond-to(tablet-large){
+    margin-top: -100px;
+  }
 
   @include respond-to(mobile-small) {
     clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
-    padding: 6rem 3rem;
+    padding: 6rem 0rem;
   }
 
   &__heading {
     padding: 4rem 0;
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 3.2rem;
+
+    @include respond-to(desktop-small){
+      font-size: 2.8rem;
+    }
+
+    @include respond-to(tablet-large){
+      font-size: 2.5rem;
+    }
+
+    @include respond-to(tablet){
+      font-size: 2.2rem;
+      width: 80%;
+    }
+
+    @include respond-to(mobile-medium){
+      font-size: 2rem;
+    }
 
     @include respond-to(mobile-small) {
-      padding-top: 2rem;
-      font-size: 2.1rem;
+      padding: 2rem;
+      font-size: 2rem;
       width: 100%;
       line-height: 3rem;
     }
@@ -100,16 +144,42 @@
     &--sub {
       padding-top: 2rem;
       padding: 2rem 6rem;
-      font-size: 2.5rem !important;
+      font-size: 2.2rem !important;
       width: 60%;
       font-family: $font-primary;
-      line-height: 3.8rem;
+      line-height: 3.6rem;
+
+      @include respond-to(desktop-small){
+        font-size: 2rem !important;
+        width: 80%;
+      }
+
+      @include respond-to(tablet-large){
+        line-height: 3.4rem;
+        width: 70%;
+        font-size: 2rem !important;
+      }
+
+      @include respond-to(tablet){
+        line-height: 3.2rem;
+        font-size: 1.7rem !important;
+        width: 80%;
+      }
+
+      @include respond-to(mobile-medium){
+        line-height: 2.6rem;
+        font-size: 1.6rem !important;
+        width: 100%;
+        padding: 0rem 4rem;
+
+      }
 
       @include respond-to(mobile-small) {
+        padding: 2rem 6rem;
         padding-top: 1rem;
-        font-size: 1.8rem !important;
+        font-size: 1.4rem !important;
         width: 100%;
-        line-height: 3.2rem;
+        line-height: 2.4rem;
       }
     }
   }
@@ -119,23 +189,39 @@
     cursor: pointer;
     box-shadow: $shadow-cards;
 
+    @include respond-to(tablet-large){
+      margin-top: 2rem;
+    }
+
+    @include respond-to(tablet){
+      margin-top: 4rem;
+    }
+
+    @include respond-to(mobile-medium) {
+      margin-top: 4rem;
+      padding: 1.5rem 2rem !important;
+      font-size: 1.4rem !important;
+    }
+
     @include respond-to(mobile-small) {
       margin-top: 4rem;
+      padding: 1.5rem 2rem !important;
       font-size: 1.2rem !important;
     }
   }
 }
 
 .exercises {
-  background-color: $background-medium;
   display: grid;
-  padding: 9rem 5.5rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto 1fr;
   gap: 2rem;
+  padding: 9rem 5.5rem;
+  background-color: $background-medium;
 
-  @include respond-to(mobile-medium) {
-    padding: 6rem 4rem;
+
+  @include respond-to(tablet-large) {
+    padding: 6rem 0rem;
     grid-template-columns: 1fr;
     gap: 4rem;
     justify-items: center;
@@ -148,9 +234,9 @@
   }
 
   &__img {
+    display: block;
     width: 30px;
     height: 30px;
-    display: block;
     padding-right: 0.6rem;
 
     @include respond-to(mobile-small) {
@@ -164,38 +250,71 @@
     grid-column: span 3;
     padding-bottom: 4rem;
 
-    @include respond-to(mobile-medium) {
+    @include respond-to(tablet-large) {
       padding-bottom: 2rem;
       grid-column: span 1;
       font-size: 2.1rem;
     }
+
   }
+
   &__content {
-    height: fit-content;
-    min-height: 350px;
-    padding: 3rem;
-    background-color: $white;
     display: flex;
     flex-basis: auto;
-    border-radius: 10px;
     flex-direction: column;
+    height: fit-content;
+    min-height: 420px;
+    padding: 3rem;
+    border-radius: 10px;
     gap: 2rem;
     box-shadow: $shadow-cards;
+    background-color: $white;
 
-    @include respond-to(mobile-medium) {
+    @include respond-to(desktop-small){
+      min-height: 480px;
+    }
+
+    @include respond-to(tablet-large) {
       margin: 0 auto;
       gap: 3rem;
       min-height: 150px;
-      width: 80%;
+      width: 45%;
       padding: 3rem;
+    }
+
+    @include respond-to(tablet){
+      width: 60%;
+    }
+
+    @include respond-to(mobile-medium){
+      width: 70%;
+    }
+
+    @include respond-to(mobile-small){
+      width: 80%;
+      gap: 2rem;
     }
 
     &--heading {
       font-size: 2.5rem;
+
+      @include respond-to(desktop-small) {
+        font-size: 2.2rem;
+      }
+
+      @include respond-to(tablet) {
+        font-size: 2rem;
+      }
+
+      @include respond-to(mobile-medium) {
+        font-size: 1.9rem;
+      }
+
       @include respond-to(mobile-small) {
         font-size: 1.7rem;
       }
     }
+
     &--text {
       flex-grow: 1;
       text-align: center !important;
@@ -203,94 +322,28 @@
       line-height: 3rem;
       padding: 1rem;
 
-      @include respond-to(mobile-small) {
+      @include respond-to(desktop-small) {
         font-size: 1.6rem;
         line-height: 2.6rem;
+        padding: 0.7rem;
+        text-align: justify !important;
       }
-    }
-    &--button {
-      margin-top: auto;
-      align-self: center;
-      padding: 1.5rem 3.5rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-size: 1.6rem;
 
-      &:hover {
-        transform: scale(1.02);
-        background-color: rgb(219, 93, 20);
+      @include respond-to(mobile-medium) {
+        font-size: 1.5rem;
+        line-height: 2.8rem;
+        padding: 0.7rem;
+        text-align: justify !important;
       }
-      @include respond-to(mobile-small) {
-        margin-top: 1rem;
-        font-size: 1.2rem !important;
-      }
-    }
-  }
-}
-
-.test-section {
-  background-color: $background-medium;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5rem;
-  gap: 2rem;
-
-  &__test--name {
-    font-family: $font-primary;
-    font-weight: 700;
-    color: $primary;
-  }
-
-  &__heading {
-    padding-bottom: 3rem;
-
-    @include respond-to(mobile-medium) {
-      padding-bottom: 6rem;
-      font-size: 2.1rem;
-    }
-  }
-
-  &__content {
-    height: fit-content;
-    min-height: 200px;
-    padding: 4rem;
-    background-color: $white;
-    display: flex;
-    flex-basis: auto;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 2rem;
-    box-shadow: $shadow-cards;
-    width: 70rem;
-
-    @include respond-to(mobile-medium) {
-      margin: 0 auto;
-      gap: 3rem;
-      min-height: 150px;
-      width: 80%;
-      padding: 3rem;
-    }
-
-    &--heading {
-      font-size: 2.5rem;
-      padding-bottom: 2rem;
-      @include respond-to(mobile-small) {
-        font-size: 1.7rem;
-      }
-    }
-
-    &--text {
-      text-align: center !important;
-      font-size: 2rem;
-      line-height: 3rem;
-      padding: 1rem;
 
       @include respond-to(mobile-small) {
         font-size: 1.4rem;
-        line-height: 2.6rem;
+        line-height: 2.2rem;
+        padding: 0.5rem;
       }
+
     }
+
     &--button {
       margin-top: auto;
       align-self: center;
@@ -303,50 +356,165 @@
         transform: scale(1.02);
         background-color: rgb(219, 93, 20);
       }
+
       @include respond-to(mobile-small) {
-        padding: 1rem 3rem;
-        margin-top: 1rem;
+        margin-top: 0rem;
         font-size: 1.2rem !important;
+        padding: 1.2rem 3.5rem;
       }
     }
   }
 }
 
+// .test-section {
+//   background-color: $background-medium;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding: 5rem;
+//   gap: 2rem;
+
+//   &__test--name {
+//     font-family: $font-primary;
+//     font-weight: 700;
+//     color: $primary;
+//   }
+
+//   &__heading {
+//     padding-bottom: 3rem;
+
+//     @include respond-to(mobile-medium) {
+//       padding-bottom: 6rem;
+//       font-size: 2.1rem;
+//     }
+//   }
+
+//   &__content {
+//     height: fit-content;
+//     min-height: 200px;
+//     padding: 4rem;
+//     background-color: $white;
+//     display: flex;
+//     flex-basis: auto;
+//     border-radius: 10px;
+//     flex-direction: column;
+//     gap: 2rem;
+//     box-shadow: $shadow-cards;
+//     width: 70rem;
+
+//     @include respond-to(mobile-medium) {
+//       margin: 0 auto;
+//       gap: 3rem;
+//       min-height: 150px;
+//       width: 80%;
+//       padding: 3rem;
+//     }
+
+//     &--heading {
+//       font-size: 2.5rem;
+//       padding-bottom: 2rem;
+//       @include respond-to(mobile-small) {
+//         font-size: 1.7rem;
+//       }
+//     }
+
+//     &--text {
+//       text-align: center !important;
+//       font-size: 2rem;
+//       line-height: 3rem;
+//       padding: 1rem;
+
+//       @include respond-to(mobile-small) {
+//         font-size: 1.4rem;
+//         line-height: 2.6rem;
+//       }
+//     }
+//     &--button {
+//       margin-top: auto;
+//       align-self: center;
+//       padding: 1.5rem 3.5rem;
+//       cursor: pointer;
+//       transition: all 0.2s ease;
+//       font-size: 1.6rem;
+
+//       &:hover {
+//         transform: scale(1.02);
+//         background-color: rgb(219, 93, 20);
+//       }
+//       @include respond-to(mobile-small) {
+//         padding: 1rem 3rem;
+//         margin-top: 1rem;
+//         font-size: 1.2rem !important;
+//       }
+//     }
+//   }
+// }
+
 .about-us {
-  padding: 6rem 4rem;
-  background-color: $background-light;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   justify-content: center;
   align-items: center;
+  padding: 6rem 4rem;
+  text-align: center;
+  gap: 2rem;
+  background-color: $background-light;
 
-  @include respond-to(mobile-small) {
-    padding: 6rem 5rem;
-  }
+
+    @include respond-to(tablet-large){
+      padding: 6rem 2rem;
+    }
+
+    @include respond-to(mobile-medium){
+      padding: 6rem 0rem;
+    }
+
+    @include respond-to(mobile-small) {
+      padding: 6rem 4rem;
+    }
 
   &__heading {
     font-size: 3rem;
     color: $primary;
     margin-bottom: 2rem;
 
+    @include respond-to(tablet){
+      font-size: 2.6rem;
+    }
+
     @include respond-to(mobile-small) {
       font-size: 2.4rem;
     }
+
   }
 
   &__text {
     font-family: $font-primary;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 2.6rem;
     color: $primary;
     text-align: center;
     padding: 2rem;
 
-    @include respond-to(mobile-small) {
-      padding: 1rem;
+    @include respond-to(desktop-small){
       font-size: 1.4rem;
+    }
+
+    @include respond-to(tablet-large){
+      font-size: 1.3rem;
+      line-height: 2.4rem;
+      padding: 1.5rem;
+    }
+
+    @include respond-to(tablet){
+      font-size: 1.2rem;
+    }
+
+    @include respond-to(mobile-small) {
+      padding: 0.6rem;
+      text-align: justify;
+      line-height: 2rem;
+      font-size: 1.2rem;
     }
 
     &--box {
@@ -355,6 +523,11 @@
       border-radius: 8px;
       padding: 2rem;
       width: 60%;
+
+      @include respond-to(tablet-large){
+          width: 80%;
+          padding: 2rem;
+      }
 
       @include respond-to(mobile-small) {
         font-size: 1.4rem;

@@ -1,60 +1,98 @@
 .number-span {
-  height: fit-content;
-  min-height: 100vh;
   justify-items: center;
   align-content: center;
+  height: fit-content;
+  min-height: 100vh;
+
+  @include respond-to(mobile-medium){
+    padding: 0;
+  }
 
   &__number {
     font-size: 6rem;
+
+    @include respond-to(desktop-small){
+      font-size: 4rem;
+    }
 
     @include respond-to(mobile-small) {
       font-size: 3.2rem;
     }
   }
 
+  &__heading{
+
+    @include respond-to(desktop-small){
+      font-size: 2.5rem !important;
+      width: 80% !important;
+      line-height: 3rem;
+    }
+
+    @include respond-to(tablet-large){
+      font-size: 2rem !important;
+    }
+
+    @include respond-to(mobile-medium){
+      font-size: 1.8rem !important;
+      width: 80% !important;
+      line-height: 3rem;
+    }
+
+    @include respond-to(mobile-small){
+      font-size: 1.6rem !important;
+      font-weight: 600;
+    }
+
+  }
+
   &__number--box {
     padding: 5rem 0;
-    background-color: white;
     width: 100vw;
+    background-color: white;
 
     @include respond-to(mobile-small) {
-      padding: 1.5rem;
+      padding: 1.5rem 0;
     }
   }
 
   &__container {
-    margin: 0 auto;
     display: flex;
-    text-align: center;
-    gap: 5rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5rem;
+    margin: 0 auto;
     margin-bottom: 4rem;
+    text-align: center;
 
-    @include respond-to(mobile-small) {
+    @include respond-to(mobile-medium) {
       gap: 2.5rem;
-      padding: 3rem;
     }
 
     &--result {
-      gap: 3rem;
+      gap: 1rem;
     }
   }
 
   &__result {
     padding: 0px;
+
+    @include respond-to(mobile-small){
+      font-size: 2rem;
+    }
+    
   }
 
   &__heading {
-    width: 80%;
+    width: 100%;
+    text-align: center;
   }
 
   &__answer {
+    padding: 1rem 12rem;
     color: $primary;
     font-family: $font-primary;
     background-color: white;
-    padding: 1rem 12rem;
     font-size: 2.4rem;
     border: 1px solid rgba(187, 187, 187, 0.4);
     border-radius: 8px;
@@ -72,6 +110,22 @@
   &__instruction {
     color: #1b395d;
     margin-bottom: 2rem;
+
+    @include respond-to(tablet-large){
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+      width: 80%;
+    }
+
+    @include respond-to(mobile-medium){
+      width: 90%;
+      font-size: 1.4rem !important;
+      line-height: 2.2rem;
+    }
+
+    @include respond-to(mobile-small){
+      font-size: 1.3rem !important;
+    }
   }
 
   &__input {
@@ -87,7 +141,7 @@
     }
 
     @include respond-to(mobile-small) {
-      padding: 0.5rem 2rem;
+      padding: 0.5rem 0rem;
     }
   }
 
@@ -97,6 +151,8 @@
 
     &--result {
       margin-top: 2rem;
+      padding: 1.2rem 2.5rem !important;
+      font-size: 1.6rem;
     }
 
     @include respond-to(mobile-small) {
