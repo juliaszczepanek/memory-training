@@ -59,7 +59,7 @@ A responsive web application designed as part of my master's thesis. It focuses 
       <br /><sub>Navigation on desktop.</sub>
     </td>
     <td width="380">
-      <img src="screenshoots/nav2.png" alt="Mobile drawer navigation" width="375" />
+      <img src="screenshoots/nav2.png" alt="Mobile drawer navigation" width="100%" />
       <br /><sub>Mobile navigation.</sub>
     </td>
   </tr>
@@ -74,7 +74,7 @@ A responsive web application designed as part of my master's thesis. It focuses 
       <br /><sub>Corsi Block test (desktop).</sub>
     </td>
     <td width="380">
-      <img src="screenshoots/corsi2.png" alt="Corsi Block – mobile view" width="375" />
+      <img src="screenshoots/corsi2.png" alt="Corsi Block – mobile view" width="100%" />
       <br /><sub>Same task on mobile.</sub>
     </td>
   </tr>
@@ -99,7 +99,7 @@ A responsive web application designed as part of my master's thesis. It focuses 
 
 <p >
   <img src="screenshoots/verbal.png" alt="Verbal Memory exercise screen" width="1000" />
-  <br /><sub>Veerbal memory flow.</sub>
+  <br /><sub>Verbal memory flow.</sub>
 </p>
 
 ### Auth
