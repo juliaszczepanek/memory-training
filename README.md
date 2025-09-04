@@ -31,21 +31,21 @@ A responsive web application designed as part of my master's thesis. It focuses 
   <tr>
     <td>
       <img src="screenshoots/home1.png" alt="Home screen – hero/intro" width="100%" />
-      <br /><sub>Landing with quick actions.</sub>
+      <br /><sub>Hero section.</sub>
     </td>
     <td>
       <img src="screenshoots/home2.png" alt="Home screen – exercises overview" width="100%" />
-      <br /><sub>Exercises overview.</sub>
+      <br /><sub>Header.</sub>
     </td>
   </tr>
   <tr>
     <td>
       <img src="screenshoots/home3.png" alt="Home screen – stats and cards" width="100%" />
-      <br /><sub>Stats cards at a glance.</sub>
+      <br /><sub>Exercises overview.</sub>
     </td>
     <td>
       <img src="screenshoots/home4.png" alt="Home screen – responsive layout" width="100%" />
-      <br /><sub>Responsive layout.</sub>
+      <br /><sub>About application.</sub>
     </td>
   </tr>
 </table>
@@ -56,11 +56,11 @@ A responsive web application designed as part of my master's thesis. It focuses 
   <tr>
     <td>
       <img src="screenshoots/nav.png" alt="Desktop top navigation bar" width="100%" />
-      <br /><sub>Top navigation on desktop.</sub>
+      <br /><sub>Navigation on desktop.</sub>
     </td>
     <td width="380">
       <img src="screenshoots/nav2.png" alt="Mobile drawer navigation" width="375" />
-      <br /><sub>Mobile drawer.</sub>
+      <br /><sub>Mobile navigation.</sub>
     </td>
   </tr>
 </table>
@@ -71,7 +71,7 @@ A responsive web application designed as part of my master's thesis. It focuses 
   <tr>
     <td>
       <img src="screenshoots/corsi.png" alt="Corsi Block – desktop view" width="100%" />
-      <br /><sub>Spatial sequence test (desktop).</sub>
+      <br /><sub>Corsi Block test (desktop).</sub>
     </td>
     <td width="380">
       <img src="screenshoots/corsi2.png" alt="Corsi Block – mobile view" width="375" />
@@ -86,11 +86,11 @@ A responsive web application designed as part of my master's thesis. It focuses 
   <tr>
     <td>
       <img src="screenshoots/number2.png" alt="Number Span – exercise view" width="100%" />
-      <br /><sub>Digit span challenge.</sub>
+      <br /><sub>Number Span challenge.</sub>
     </td>
     <td>
       <img src="screenshoots/number1.png" alt="Number Span – results view" width="100%" />
-      <br /><sub>Results and feedback.</sub>
+      <br /><sub>Input for Number Span.</sub>
     </td>
   </tr>
 </table>
@@ -99,7 +99,7 @@ A responsive web application designed as part of my master's thesis. It focuses 
 
 <p >
   <img src="screenshoots/verbal.png" alt="Verbal Memory exercise screen" width="1000" />
-  <br /><sub>Word recall flow.</sub>
+  <br /><sub>Veerbal memory flow.</sub>
 </p>
 
 ### Auth
@@ -121,7 +121,7 @@ A responsive web application designed as part of my master's thesis. It focuses 
 
 <p >
   <img src="screenshoots/profile.png" alt="User profile screen" width="1000" />
-  <br /><sub>Personal stats & settings.</sub>
+  <br /><sub>Personal stats & Profile.</sub>
 </p>
 
 ---
