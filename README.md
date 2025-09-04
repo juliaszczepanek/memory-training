@@ -55,11 +55,11 @@ A responsive web application designed as part of my master's thesis. It focuses 
 <table>
   <tr>
     <td>
-      <img src="screenshoots/nav.png" alt="Desktop top navigation bar" width="50%" />
+      <img src="screenshoots/nav.png" alt="Desktop top navigation bar" width="100%" />
       <br /><sub>Navigation on desktop.</sub>
     </td>
     <td width="380">
-      <img src="screenshoots/nav2.png" alt="Mobile drawer navigation" width="50%" />
+      <img src="screenshoots/nav2.png" alt="Mobile drawer navigation" width="100%" />
       <br /><sub>Mobile navigation.</sub>
     </td>
   </tr>
